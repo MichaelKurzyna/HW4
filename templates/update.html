@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="card my-2">
+        <div class="card-header">
+            Update Task
+        </div>
+        <div class="card-body">
+            <form action="{% url 'update' task.id %}" method="post">
+                {% csrf_token %}
+                <h5>Task name:</h5>
+                <label>
+                    <input type="text" class="form-control" value="{{ task.task }}" name="task">
+                </label>
+                <button class="btn btn-primary d-block my-3" type="submit"><i class="fa-regular fa-pen-to-square"></i> Update</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'index' %}"><button class="btn btn-warning"><i class="fa-solid fa-arrow-left-long"></i> Go back</button></a>
+{% endblock %}

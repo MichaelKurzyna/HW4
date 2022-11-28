@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="card my-2">
+        <div class="card-header">
+            New Task
+        </div>
+        <div class="card-body">
+            <h2>Add a new Task</h2>
+            <form action="{% url 'add' %}" method="post">
+                {% csrf_token %}
+                <h5>Task name:</h5>
+                <label>
+                    <input type="text" class="form-control" placeholder="Add a new task" name="task">
+                </label>
+                <button class="btn btn-primary d-block my-3" type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'index' %}"><button class="btn btn-warning"><i class="fa-solid fa-eye"></i> View tasks</button></a>
+
+{% endblock %}
